@@ -34,7 +34,7 @@ rest.get('http://api.dp.la/v2/items?&sourceResource.subject.name=food+and+cookin
 			var results = data.docs; // Grabs up to ten results from the DPLA
 			var i = Math.floor(Math.random()*results.length); // Select a random number based on the number of results from DPLA
 			itemTitle = data.docs[i].sourceResource.title; // Uses the random number to select a single item from the list of DPLA results
-
+			
 			// Sometimes the titles are too long for a tweet. Here we shorten them and add an ellipsis
 			if (itemTitle.length > 100){
 			  itemTitle = itemTitle.substr(0, 100) + "\u2026";
@@ -42,7 +42,7 @@ rest.get('http://api.dp.la/v2/items?&sourceResource.subject.name=food+and+cookin
 			else {itemTitle = itemTitle;
 			  }
 	
-			itemURL = data.docs[i].isShownAt; // This is the source URL for the item
+			itemURL = "http://dp.la/item/" + data.docs[i].id; // This is the source URL for the item
 
 	
 	// Now we build	the tweet, which is made up of an introductory phrase, the pluralized noun, another phrase, and the item title and URL	
