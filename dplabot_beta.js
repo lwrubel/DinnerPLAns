@@ -1046,8 +1046,8 @@ rest.get('http://api.dp.la/v2/items?&sourceResource.subject.name=food+and+cookin
 			itemTitle = data.docs[i].sourceResource.title; // Uses the random number to select a single item from the list of DPLA results
 			
 			// Sometimes the titles are too long for a tweet. Here we shorten them and add an ellipsis
-			if (itemTitle.length > 100){
-			  itemTitle = itemTitle.substr(0, 100) + "\u2026";
+			if (itemTitle.length > 60){
+			  itemTitle = itemTitle.substr(0, 60) + "\u2026";
 			  }
 			else {itemTitle = itemTitle;
 			  }
