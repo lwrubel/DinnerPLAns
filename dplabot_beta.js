@@ -1,3 +1,5 @@
+//Created from Mark Sample's DPLA Bot https://github.com/samplereality/DPLAbot
+
 var sys = require('util'),
     rest = require('restler');
 var Twit = require('twit');
@@ -14,8 +16,8 @@ var T = new Twit({
 var statement = "";
 
 // Let's build our arrays. introArray and checkArray add a bit of variation into the tweets
-var introArray = ["Like ","Looking for ","Interested in ","Ever hear of ","Think you know ","Puzzled by ","Crazy about ","You know "];
-var checkArray = ["? Then see ","? Check out ","? Better consider ","? Take a look at ","? You gotta see ","? Have a look at "];
+var introArray = ["Hungry for ","Craving some ","Have you considered "];
+var checkArray = ["? Feast your eyes on ","? Check out ","? Take a look at ","? You gotta see ","? Have a look at "];
 
 // makeDPLA is the heart of the bot
 function makeDPLA() {
@@ -25,10 +27,10 @@ var check = checkArray[Math.floor(Math.random() * checkArray.length)];
 
 // DPLAbot uses the Wordnik API to grab a random noun. It then plugs that random noun--data[0].word--into a call to the DPLA API.
 // You need two API keys for this two work: a Worknik API key and a DPLA API key.
-rest.get('http://api.wordnik.com/v4/words.json/randomWords?minCorpusCount=10000&hasDictionaryDef=true&minDictionaryCount=10&includePartOfSpeech=noun,idiom&excludePartOfSpeech=proper-noun,proper-noun-plural,proper-noun-posessive,suffix,family-name,idiom,affix&limit=2&maxLength=30&api_key=YOUR_WORDNIK_APIKEY').on('complete', function(data, response){
-	randomNoun = data[0].word;
-	randomNoun = inflection.pluralize(randomNoun); // Pluralize the random noun 
-	rest.get('http://api.dp.la/v2/items?q='+data[0].word+'&api_key=YOUR_DPLA_APIKEY').on('complete', function(data, response){
+myArray =[word list]   !!!!-----THIS NEEDS THE WORD LIST IN AN ARRAY OR A WAY TO GRAB FROM A DICTIONARY!!!!!----
+var rand = myArray[Math.floor(Math.random() * myArray.length)];
+
+rest.get('http://api.dp.la/v2/items?&sourceResource.subject.name=food+and+cooking&sourceResource.type=image&q='+rand+'&api_key=YOUR_DPLA_APIKEY').on('complete', function(data, response){
 			var results = data.docs; // Grabs up to ten results from the DPLA
 			var i = Math.floor(Math.random()*results.length); // Select a random number based on the number of results from DPLA
 			itemTitle = data.docs[i].sourceResource.title; // Uses the random number to select a single item from the list of DPLA results
@@ -41,9 +43,10 @@ rest.get('http://api.wordnik.com/v4/words.json/randomWords?minCorpusCount=10000&
 			  }
 	
 			itemURL = data.docs[i].isShownAt; // This is the source URL for the item
+
 	
 	// Now we build	the tweet, which is made up of an introductory phrase, the pluralized noun, another phrase, and the item title and URL	
-	statement = intro + randomNoun + check + "\u201c" + itemTitle + "\u201d at " + itemURL;
+	statement = intro + rand + check + "\u201c" + itemTitle + "\u201d at " + itemURL;
 	console.log(statement);
 		    // tweet it!	
 		T.post('statuses/update', {status: statement}, function(err, reply) {});
