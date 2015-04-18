@@ -9,10 +9,10 @@ var inflection = require( 'inflection' );
 
 // You need secret keys and tokens from dev.twitter.com. Make sure your app is set up for Read/Write access
 var T = new Twit({
-  consumer_key:         'T6bACUFLdflbxsqqvVzUuB2lK', 
-  consumer_secret:      'FeE2LwidGooUyPAPSWUyWIwNmz8rMSovGlzZlbVNKnPRxW8QAQ',
-  access_token:         '3162707947-sRw6ezCPFtQavXdF9zYQ1SuVsb1z6cUTpoNY6kp',
-  access_token_secret:  'x4ubzYQs0Npd54WCgAjaoT0pwPlbBAAvhVyGA4y92Ri5a'
+  consumer_key:         '', 
+  consumer_secret:      '',
+  access_token:         '',
+  access_token_secret:  ''
 });
 
 var statement = "";
