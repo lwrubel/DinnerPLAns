@@ -1069,7 +1069,7 @@ rest.get('http://api.dp.la/v2/items?&sourceResource.subject.name=food+and+cookin
 dplareq(rand)
 }
 
-// Create a tweet upon running dplabot.js
+// Create a tweet upon running dplabot_beta.js
 makeDPLA();
 
 
