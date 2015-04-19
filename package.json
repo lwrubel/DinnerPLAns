@@ -1,7 +1,7 @@
 {
-  "name": "dplabot",
+  "name": "dplabot_beta",
   "scripts": {
-    "start": "dplabot.js"
+    "start": "dplabot_beta.js"
   },
   "dependencies": {
     "restler": "2.0.1",
