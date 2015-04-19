@@ -1073,7 +1073,7 @@ dplareq(rand)
 makeDPLA();
 
 
-// Set up the timing for subsequent executions of makeDPLA. Here we run it every 87 minutes.
+// Set up the timing for subsequent executions of makeDPLA. Here we run it once a day (86400000 milliseconds = one day) .
 
 setInterval(function() {
   try {
@@ -1082,4 +1082,4 @@ setInterval(function() {
  catch (e) {
     console.log(e);
   }
-},1000*60*87);
+},86400000);
