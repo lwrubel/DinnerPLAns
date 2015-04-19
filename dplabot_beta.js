@@ -440,7 +440,7 @@ var myArray=[
     "Stilton",
     "Royal+Squab",
     "Haut+Sauternes",
-    "Celeri    +",
+    "Celeri    ",
     "Porterhouse+Steak",
     "Apollinaris+Water",
     "Stuffed+tomatoes",
@@ -687,7 +687,7 @@ var myArray=[
     "Crab+flake+cocktail",
     "Strawberry+ice+cream",
     "CHAMPAGNE",
-    "Clam+Stew+",
+    "Clam+Stew",
     "Asparagus+Tips",
     "Orange+ice",
     "Chicken+Salad+Sandwich",
@@ -822,7 +822,7 @@ var myArray=[
     "Young+Onions",
     "Onions",
     "Club+Soda",
-    "Ribs+of+beef+",
+    "Ribs+of+beef",
     "Roast+Lamb,+Mint+Sauce",
     "GRAHAM+ROLLS",
     "NEW+POTATOES",
@@ -1056,7 +1056,8 @@ rest.get('http://api.dp.la/v2/items?&sourceResource.subject.name=food+and+cookin
 
 	
 	// Now we build	the tweet, which is made up of an introductory phrase, the pluralized noun, another phrase, and the item title and URL	
-	statement = intro + rand + check + "\u201c" + itemTitle + "\u201d at " + itemURL;
+	var prettyrand = rand.replace("+", " ");
+    statement = intro + prettyrand + check + "\u201c" + itemTitle + "\u201d at " + itemURL;
 	console.log(statement);
 		    // tweet it!	
 		T.post('statuses/update', {status: statement}, function(err, reply) {});
