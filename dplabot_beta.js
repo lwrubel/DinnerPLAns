@@ -9,10 +9,10 @@ var inflection = require( 'inflection' );
 
 // You need secret keys and tokens from dev.twitter.com. Make sure your app is set up for Read/Write access
 var T = new Twit({
-  consumer_key:         '', 
-  consumer_secret:      '',
-  access_token:         '',
-  access_token_secret:  ''
+  consumer_key:         '2VHoOq17gpWFJsDrDC0Dy7Pat', 
+  consumer_secret:      'SzRjrN4XgiRaSi5moo5UwMd5nMZNOHKUHfFhdec1TU2zpR5n4M',
+  access_token:         '3162707947-sRw6ezCPFtQavXdF9zYQ1SuVsb1z6cUTpoNY6kp',
+  access_token_secret:  'x4ubzYQs0Npd54WCgAjaoT0pwPlbBAAvhVyGA4y92Ri5a'
 });
 
 var statement = "";
@@ -1035,7 +1035,7 @@ var rand = myArray[Math.floor(Math.random() * myArray.length)];
 
 dplareq = function(rand) {
 
-rest.get('http://api.dp.la/v2/items?&sourceResource.subject.name=food+and+cooking&sourceResource.type=image&q='+rand+'&api_key=').on('complete', function(data, response){
+rest.get('http://api.dp.la/v2/items?&sourceResource.subject.name=food+and+cooking&sourceResource.type=image&q='+rand+'&api_key=2a1ba63cacc3ebd0521a7870f9c8a73b').on('complete', function(data, response){
 			var results = data.docs; // Grabs up to ten results from the DPLA
 			var i = Math.floor(Math.random()*results.length); // Select a random number based on the number of results from DPLA
             if (data.docs.length == 0){
